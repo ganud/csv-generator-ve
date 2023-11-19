@@ -76,10 +76,10 @@ def get_column(filename, column):
     return column_list
 
 def get_price(line, type):
-    if (line == "Revival" and type == "T-Shirt"): return '40'
-    elif (line == "Revival" and type == "Pants"): return '100'
+    if (line == "Revival" and type == "T-Shirt"): return '30'
+    elif (line == "Revival" and type == "Pants"): return '50'
     elif (line == "Revival" and type == "Sweater"): return '60'
-    elif (line == "Revival" and type == "Jacket"): return '125'
+    elif (line == "Revival" and type == "Jacket"): return '100'
     elif (line == "Everyday" and type == "T-Shirt"): return '20'
     elif (line == "Everyday" and type == "Pants"): return '35'
     elif (line == "Everyday" and type == "Sweater"): return '40'
