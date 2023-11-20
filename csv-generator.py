@@ -30,7 +30,7 @@ def create_CSV():
     for i, item in enumerate(ITEMS):
         row = get_header()
         row['fieldType'] = 'Product'
-        row['name'] = f"{LINES[i]} {ITEMS[i]}"
+        row['name'] = f"Mystery {LINES[i]} {ITEMS[i]}"
         itemlist = item.split(" ")
         itemlist.insert(0, LINES[i])
         collection = ";".join(itemlist)
