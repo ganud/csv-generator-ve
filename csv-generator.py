@@ -36,15 +36,15 @@ def create_CSV():
         collection = ";".join(itemlist)
 
         row['collection'] = collection
-        row['price'] = get_price(LINES[i], itemlist[2])
+        row['price'] = PRICES[i]
         row['visible'] = 'TRUE'
         row['discountMode'] = 'PERCENT'
         row['discountValue'] = '0'
         row['inventory'] = 'InStock'
         row['additionalInfoTitle1'] = 'Buy Link (Click me)'
-        row['additionalInfoDescription1'] = f'<p><a href="{LINKS[i]}" target="_blank">Buy</a></p>'
+        row['additionalInfoDescription1'] = f'<p><a href="{BUY_LINKS[i]}" target="_blank">Buy</a></p>'
         row['handleId'] = get_random_string()
-        
+        row['productImageUrl'] = IMAGE_LINKS[i]
         with open('catalog_products.csv', 'a', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=row.keys())
             writer.writerow(row)
@@ -91,7 +91,9 @@ def get_price(line, type):
 
 LINES = get_column('purchase_buttons.csv', 'Line')
 ITEMS = get_column('purchase_buttons.csv', 'Item')
-LINKS = get_column('purchase_buttons.csv', 'Link')
+BUY_LINKS = get_column('purchase_buttons.csv', 'Link')
+PRICES = get_column('purchase_buttons.csv', 'Price')
+IMAGE_LINKS = get_column('purchase_buttons.csv', 'Image')
 
 clear_CSV()
 create_CSV()
