@@ -3,7 +3,7 @@ Made for Virtual Enterprise
 
 Usage Directions  
     Setup:  
-    - Make sure "purchase_buttons.csv" and "catalog_products.csv" are present.
+    - Make sure "purchase_buttons.csv" and "catalog_products.csv" are present.  
     Usage:  
     - Run the py file.  
     Troubleshooting:  
