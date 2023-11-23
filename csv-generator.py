@@ -1,7 +1,4 @@
-import os
 import csv
-import random
-import string
 
 
 def get_header():
@@ -33,6 +30,8 @@ def create_CSV():
         row = get_header()
         row['fieldType'] = 'Product'
         row['name'] = f"Mystery {LINES[i]} {ITEMS[i]}"
+
+        # Isolate categories from the product names
         itemlist = item.split(" ")
         itemlist.insert(0, LINES[i])
         collection = ";".join(itemlist)
@@ -44,19 +43,13 @@ def create_CSV():
         row['discountValue'] = '0'
         row['inventory'] = 'InStock'
         row['additionalInfoTitle1'] = 'Buy Link (Click me)'
-        row['additionalInfoDescription1'] = f'<p><a href="{BUY_LINKS[i]}" target="_blank">Buy</a></p>'
-        row['handleId'] = get_random_string()
+        row['additionalInfoDescription1'] = f'<p><a href="{BUY_LINKS[i]}" target="_blank">Buy Me</a></p>'
+        row['handleId'] = i
         row['productImageUrl'] = IMAGE_LINKS[i]
         with open('catalog_products.csv', 'a', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=row.keys())
             writer.writerow(row)
 
-
-# This is used to create a unique handleid. Duplicate handleids on wix result in the product simply getting overriden.
-def get_random_string(): 
-    characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters) for i in range(8))
-    return password
 
 def get_column(filename, column):
     column_list = []
