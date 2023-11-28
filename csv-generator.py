@@ -46,6 +46,7 @@ def create_CSV():
         row['additionalInfoDescription1'] = f'<p><a href="{BUY_LINKS[i]}" target="_blank">Buy Me</a></p>'
         row['handleId'] = i
         row['productImageUrl'] = IMAGE_LINKS[i]
+        row['description'] = DESCRIPTIONS[i]
         with open('catalog_products.csv', 'a', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=row.keys())
             writer.writerow(row)
@@ -67,7 +68,7 @@ ITEMS = get_column('purchase_buttons.csv', 'Item')
 BUY_LINKS = get_column('purchase_buttons.csv', 'Link')
 PRICES = get_column('purchase_buttons.csv', 'Price')
 IMAGE_LINKS = get_column('purchase_buttons.csv', 'Image')
-
+DESCRIPTIONS = get_column('purchase_buttons.csv', 'Description')
 
 clear_CSV()
 create_CSV()
