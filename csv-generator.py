@@ -47,6 +47,9 @@ def create_CSV():
         row['handleId'] = i
         row['productImageUrl'] = IMAGE_LINKS[i]
         row['description'] = DESCRIPTIONS[i]
+        row['productOptionName1'] = "Size"
+        row['productOptionType1'] = "DROP_DOWN"
+        row['productOptionDescription1'] = "Small;Medium;Large"
         with open('catalog_products.csv', 'a', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=row.keys())
             writer.writerow(row)
