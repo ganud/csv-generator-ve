@@ -30,24 +30,22 @@ def create_CSV():
         row = get_header()
         row['fieldType'] = 'Product'
         row['name'] = f"Mystery {LINES[i]} {ITEMS[i]}"
-
         # Isolate categories from the product names
         itemlist = item.split(" ")
         itemlist.insert(0, LINES[i])
         collection = ";".join(itemlist)
-
         row['collection'] = collection
         row['price'] = PRICES[i]
         row['visible'] = 'TRUE'
         row['discountMode'] = 'PERCENT'
         row['discountValue'] = '0'
         row['inventory'] = 'InStock'
-        row['additionalInfoTitle1'] = 'Buy Link (Click me)'
-        row['additionalInfoDescription1'] = f'<p><a href="{BUY_LINKS[i]}" target="_blank">Buy Me</a></p>'
-        row['handleId'] = i
+        row['additionalInfoTitle1'] = 'Show Buy Link'
+        row['additionalInfoDescription1'] = f'<p><a href="{BUY_LINKS[i]}" target="_blank">Add to Cart</a></p>'
+        row['handleId'] = i + 20
         row['productImageUrl'] = IMAGE_LINKS[i]
         row['description'] = DESCRIPTIONS[i]
-        row['productOptionName1'] = "Size"
+        row['productOptionName1'] = "Size Options (Specify in VE checkout)"
         row['productOptionType1'] = "DROP_DOWN"
         row['productOptionDescription1'] = "Small;Medium;Large"
         with open('catalog_products.csv', 'a', newline='') as f:
