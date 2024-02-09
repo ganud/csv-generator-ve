@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import csv
 
 
@@ -40,7 +41,7 @@ def create_CSV():
         row['discountMode'] = 'PERCENT'
         row['discountValue'] = '0'
         row['inventory'] = 'InStock'
-        row['additionalInfoTitle1'] = 'Show Buy Link'
+        row['additionalInfoTitle1'] = '‎ '.encode('utf-8').decode('utf-8')
         row['additionalInfoDescription1'] = f'<p><a href="{BUY_LINKS[i]}" target="_blank">Add to Cart</a></p>'
         row['handleId'] = i + 20
         row['productImageUrl'] = IMAGE_LINKS[i]
@@ -48,7 +49,7 @@ def create_CSV():
         row['productOptionName1'] = "Size Options (Specify in VE checkout)"
         row['productOptionType1'] = "DROP_DOWN"
         row['productOptionDescription1'] = "Small;Medium;Large"
-        with open('catalog_products.csv', 'a', newline='') as f:
+        with open('catalog_products.csv', 'a', newline='', encoding='UTF-8') as f:
             writer = csv.DictWriter(f, fieldnames=row.keys())
             writer.writerow(row)
 
